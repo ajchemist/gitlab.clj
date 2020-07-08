@@ -95,7 +95,7 @@
 ;; * Types
 
 
-(defrecord RepositoryFile [private-token project-id file-path]
+(defrecord RepositoryFile [private-token project-id file-path ref]
   jio/IOFactory
   (make-reader [x opts]
     (StringReader.
@@ -103,4 +103,5 @@
        (request--repository-files-get-raw
          {:gitlab/private-token private-token
           :gitlab/project-id    project-id
-          :gitlab/file-path     file-path})))))
+          :gitlab/file-path     file-path
+          :query-params         {:ref ref}})))))

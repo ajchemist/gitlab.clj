@@ -24,4 +24,14 @@
             {:private-token "mqBoAzEpP6NxWcSzzKYR"
              :project-id    "19806720"
              :file-path     "config.edn"})))))
+
+
+  (prn
+    (read-string
+      (slurp
+        (gitlab/map->RepositoryFile
+          {:private-token "mqBoAzEpP6NxWcSzzKYR"
+           :project-id    "19806720"
+           :file-path     "config.edn"
+           :ref           "03cb27c780f43be7f1dac5774fea882183bd4275"}))))
   )
